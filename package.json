@@ -8,6 +8,8 @@
     "@contentful/forma-36-fcss": "0.0.35",
     "@contentful/forma-36-react-components": "^3.42.2",
     "@contentful/forma-36-tokens": "^0.5.3",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@testing-library/jest-dom": "^5.11.1",
     "@testing-library/react": "^10.4.7",
     "@testing-library/user-event": "^12.0.13",
@@ -21,11 +23,34 @@
     "react-scripts": "3.4.1",
     "typescript": "^3.9.7"
   },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^4.2.5",
+    "prettier": "^2.0.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "CI=true react-scripts test --env=jsdom-fourteen",
+    "test:watch": "react-scripts test --env=jsdom-fourteen",
+    "format": "prettier --check src/**/*.*",
+    "format:fix": "prettier --write src/**/*.*"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
   },
   "eslintConfig": {
     "extends": "react-app"

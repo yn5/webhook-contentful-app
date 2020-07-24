@@ -1,60 +1,76 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppExtensionSDK } from 'contentful-ui-extensions-sdk';
-import { Heading, Form, Workbench, Paragraph } from '@contentful/forma-36-react-components';
-import { css } from 'emotion';
+import {
+  Heading,
+  Form,
+  TextField,
+  Workbench,
+} from '@contentful/forma-36-react-components';
 
-export interface AppInstallationParameters {}
+import { Parameters } from '../lib/types';
 
-interface ConfigProps {
-  sdk: AppExtensionSDK;
-}
+function Config({ sdk }: { sdk: AppExtensionSDK }) {
+  const [appParameters, setAppParameters] = useState<Parameters>({});
 
-interface ConfigState {
-  parameters: AppInstallationParameters;
-}
+  useEffect(() => {
+    (async () => {
+      const { app } = sdk;
+      app.setReady();
 
-export default class Config extends Component<ConfigProps, ConfigState> {
-  constructor(props: ConfigProps) {
-    super(props);
-    this.state = { parameters: {} };
+      const parameters = await app.getParameters();
+      setAppParameters(parameters || {});
+    })();
+  }, [sdk]);
 
-    // `onConfigure` allows to configure a callback to be
-    // invoked when a user attempts to install the app or update
-    // its configuration.
-    props.sdk.app.onConfigure(() => this.onConfigure());
-  }
+  useEffect(() => {
+    const { app } = sdk;
 
-  async componentDidMount() {
-    // Get current parameters of the app.
-    // If the app is not installed yet, `parameters` will be `null`.
-    const parameters: AppInstallationParameters | null = await this.props.sdk.app.getParameters();
+    app.onConfigure(async () => {
+      return { parameters: appParameters };
+    });
+  });
 
-    this.setState(parameters ? { parameters } : this.state, () => {
-      // Once preparation has finished, call `setReady` to hide
-      // the loading screen and present the app to a user.
-      this.props.sdk.app.setReady();
+  function setAppParameter(name: string, value: string) {
+    setAppParameters({
+      ...appParameters,
+      [name]: value,
     });
   }
 
-  onConfigure = async () => {
-    // This method will be called when a user clicks on "Install"
-    // or "Save" in the configuration screen.
-    // for more details see https://www.contentful.com/developers/docs/extensibility/ui-extensions/sdk-reference/#register-an-app-configuration-hook
-
-    return {
-      // Parameters to be persisted as the app configuration.
-      parameters: this.state.parameters
-    };
-  };
-
-  render() {
-    return (
-      <Workbench className={css({ margin: '80px' })}>
+  return (
+    <Workbench>
+      <Workbench.Content>
         <Form>
-          <Heading>App Config</Heading>
-          <Paragraph>Welcome to your contentful app. This is your config page.</Paragraph>
+          <Heading>Webhook</Heading>
+          <TextField
+            name="webhookUrl"
+            id="webhookUrl"
+            labelText="Webhook URL"
+            value={appParameters.webhookUrl || ''}
+            onChange={(event) => {
+              const target = event.target as HTMLInputElement;
+              setAppParameter(target.name, target.value);
+            }}
+            testId="webhook-url-input"
+            required
+          />
+
+          <TextField
+            name="buttonText"
+            id="buttonText"
+            labelText="Button text"
+            helpText="The text that will be shown in the button that triggers the webhook"
+            value={appParameters.buttonText || ''}
+            onChange={(event) => {
+              const target = event.target as HTMLInputElement;
+              setAppParameter(target.name, target.value);
+            }}
+            testId="button-text-input"
+          />
         </Form>
-      </Workbench>
-    );
-  }
+      </Workbench.Content>
+    </Workbench>
+  );
 }
+
+export default Config;
