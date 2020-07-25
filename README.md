@@ -4,6 +4,32 @@
 
 This project was bootstrapped with [Create Contentful App](https://github.com/contentful/create-contentful-app).
 
+## Usage
+
+1. Serve a build of the app. (See [deployment instructions](#deployment) on how to deploy.)
+
+2. Create an app in a Contentful organisation's Apps settings using the URL where the app is served.
+
+3. Install the app in one of the organisation's spaces in the space's Apps settings.
+
+4. Add the app's sidebar view to one or more content type's custom sidebar in the content type's sidebar configuratin.
+
+### Deployment
+
+This project is deployed on Vercel at https://webhook-contentful-app.vercel.app. **While anyone is free to make use of that deployment please beware that USAGE IS AT OWN RISK! This repository and thus the deployment it's tightly coupled to is subject to change and there is no guarantee backwards incompatible changes won't happen!**
+
+It would be best to fork this repository and host it yourself:
+
+0. (Make sure the repository is cloned and the dependencies are installed. See [getting-started](#getting-started) instructions.)
+
+1. Build the project:
+
+```bash
+npm run build
+```
+
+2. Serve the resulting `build` folder.
+
 ## Development
 
 ### Prerequisites
@@ -108,20 +134,6 @@ Please review the documentation of these libraries before you start developing:
 - [jest-dom](https://github.com/testing-library/jest-dom/)
 
 These are the most fundamental dependencies. For a complete list of dependencies see [package.json](package.json)
-
-## Deployment
-
-This project is deployed on Vercel at https://webhook-contentful-app.vercel.app. **While anyone is free to make use of that deployment please beware that USAGE IS AT OWN RISK! This repository and thus the deployment it's tightly coupled to is subject to change and there is no guarantee backwards incompatible changes won't happen!**
-
-It would be best to fork this repository and host it yourself:
-
-1. Build the project:
-
-```bash
-npm run build
-```
-
-2. Serve the resulting `build` folder.
 
 ## Learn More
 
