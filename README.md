@@ -1,3 +1,5 @@
+[![Test Action Status](https://github.com/yn5/webhook-contentful-app/workflows/Test/badge.svg)](https://github.com/yn5/webhook-contentful-app/actions)
+
 # Webhook Contentful app
 
 > A Contentful app extension to trigger a webhook from the sidebar.
