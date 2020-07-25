@@ -1,0 +1,445 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Config When there are no webhooks Should match snapshot 1`] = `
+<div
+  class="Workbench__Workbench___THi9K"
+  data-test-id="container"
+>
+  <div
+    class="Workbench__Workbench__content-wrapper___3yWKi"
+  >
+    <div
+      class="Workbench__Workbench__content___1U8bV"
+      data-test-id="cf-ui-workbench-content"
+    >
+      <div
+        class="Workbench__Workbench__content-inner___36_Hx Workbench__Workbench__content-inner--default___2wRXn"
+      >
+        <form
+          class="Form__Form___2zwZf"
+          data-test-id="cf-ui-form"
+        >
+          <div
+            class="Form__Form__item___2qOZE Form__Form__item--default___1CHMK"
+          >
+            <button
+              class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO"
+              data-test-id="add-webhook-button"
+              type="button"
+            >
+              <span
+                class="TabFocusTrap__TabFocusTrap___39Vty Button__Button__inner-wrapper___3qrNC"
+                tabindex="-1"
+              >
+                <span
+                  class="Button__Button__label___3tcOj"
+                >
+                  Add Webhook
+                </span>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Config When there is a webhook with values Should match snapshot 1`] = `
+<div
+  class="Workbench__Workbench___THi9K"
+  data-test-id="container"
+>
+  <div
+    class="Workbench__Workbench__content-wrapper___3yWKi"
+  >
+    <div
+      class="Workbench__Workbench__content___1U8bV"
+      data-test-id="cf-ui-workbench-content"
+    >
+      <div
+        class="Workbench__Workbench__content-inner___36_Hx Workbench__Workbench__content-inner--default___2wRXn"
+      >
+        <form
+          class="Form__Form___2zwZf"
+          data-test-id="cf-ui-form"
+        >
+          <div
+            class="Form__Form__item___2qOZE Form__Form__item--default___1CHMK"
+          >
+            <div
+              class="css-1diq458"
+              data-test-id="webhook-fields-0"
+            >
+              <h1
+                class="Heading__Heading___83D3K"
+                data-test-id="cf-ui-heading"
+              >
+                Test
+              </h1>
+              <div
+                class="css-1pwo1o8"
+              >
+                <div
+                  class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
+                  data-test-id="name-input-0"
+                >
+                  <div
+                    class="TextField__TextField__label-wrapper___2-MJT"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="name"
+                    >
+                      Name
+                      <span
+                        class="FormLabel__FormLabel__required-text___3mvdm"
+                      >
+                        (
+                        required
+                        )
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
+                  >
+                    <input
+                      aria-label="name"
+                      class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-text-input"
+                      id="name"
+                      name="name"
+                      required=""
+                      value="Test"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-1pwo1o8"
+              >
+                <div
+                  class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
+                  data-test-id="webhook-url-input-0"
+                >
+                  <div
+                    class="TextField__TextField__label-wrapper___2-MJT"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="webhookUrl"
+                    >
+                      Webhook URL
+                      <span
+                        class="FormLabel__FormLabel__required-text___3mvdm"
+                      >
+                        (
+                        required
+                        )
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
+                  >
+                    <input
+                      aria-label="webhookUrl"
+                      class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-text-input"
+                      id="webhookUrl"
+                      name="webhookUrl"
+                      required=""
+                      value="https://www.google.com"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-1pwo1o8"
+              >
+                <div
+                  class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
+                  data-test-id="button-text-input-0"
+                >
+                  <div
+                    class="TextField__TextField__label-wrapper___2-MJT"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="buttonText"
+                    >
+                      Button text
+                    </label>
+                  </div>
+                  <div
+                    class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
+                  >
+                    <input
+                      aria-label="buttonText"
+                      class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-text-input"
+                      id="buttonText"
+                      name="buttonText"
+                      value="Custom button text"
+                    />
+                  </div>
+                  <div
+                    class="TextField__TextField__hints___3Di2P"
+                  >
+                    <p
+                      class="HelpText__HelpText___uWbja TextField__TextField__help-text___p4rVf"
+                      data-test-id="cf-ui-help-text"
+                    >
+                      The text that will be shown in the button that triggers the webhook
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-1pwo1o8"
+              >
+                <button
+                  class="TextLink__TextLink___1biUr a11y__focus-outline--default___2hwb1 css-7h4q8w TextLink__TextLink--negative___3yhMk"
+                  data-test-id="delete-webhook-button-0"
+                  type="button"
+                >
+                  <span
+                    class="TabFocusTrap__TabFocusTrap___39Vty"
+                    tabindex="-1"
+                  >
+                    Delete webhook
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="Form__Form__item___2qOZE Form__Form__item--default___1CHMK"
+          >
+            <button
+              class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO"
+              data-test-id="add-webhook-button"
+              type="button"
+            >
+              <span
+                class="TabFocusTrap__TabFocusTrap___39Vty Button__Button__inner-wrapper___3qrNC"
+                tabindex="-1"
+              >
+                <span
+                  class="Button__Button__label___3tcOj"
+                >
+                  Add Webhook
+                </span>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Config When there is an empty webhook Should match snapshot 1`] = `
+<div
+  class="Workbench__Workbench___THi9K"
+  data-test-id="container"
+>
+  <div
+    class="Workbench__Workbench__content-wrapper___3yWKi"
+  >
+    <div
+      class="Workbench__Workbench__content___1U8bV"
+      data-test-id="cf-ui-workbench-content"
+    >
+      <div
+        class="Workbench__Workbench__content-inner___36_Hx Workbench__Workbench__content-inner--default___2wRXn"
+      >
+        <form
+          class="Form__Form___2zwZf"
+          data-test-id="cf-ui-form"
+        >
+          <div
+            class="Form__Form__item___2qOZE Form__Form__item--default___1CHMK"
+          >
+            <div
+              class="css-1diq458"
+              data-test-id="webhook-fields-0"
+            >
+              <h1
+                class="Heading__Heading___83D3K"
+                data-test-id="cf-ui-heading"
+              >
+                Webhook 1
+              </h1>
+              <div
+                class="css-1pwo1o8"
+              >
+                <div
+                  class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
+                  data-test-id="name-input-0"
+                >
+                  <div
+                    class="TextField__TextField__label-wrapper___2-MJT"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="name"
+                    >
+                      Name
+                      <span
+                        class="FormLabel__FormLabel__required-text___3mvdm"
+                      >
+                        (
+                        required
+                        )
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
+                  >
+                    <input
+                      aria-label="name"
+                      class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-text-input"
+                      id="name"
+                      name="name"
+                      required=""
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-1pwo1o8"
+              >
+                <div
+                  class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
+                  data-test-id="webhook-url-input-0"
+                >
+                  <div
+                    class="TextField__TextField__label-wrapper___2-MJT"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="webhookUrl"
+                    >
+                      Webhook URL
+                      <span
+                        class="FormLabel__FormLabel__required-text___3mvdm"
+                      >
+                        (
+                        required
+                        )
+                      </span>
+                    </label>
+                  </div>
+                  <div
+                    class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
+                  >
+                    <input
+                      aria-label="webhookUrl"
+                      class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-text-input"
+                      id="webhookUrl"
+                      name="webhookUrl"
+                      required=""
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-1pwo1o8"
+              >
+                <div
+                  class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
+                  data-test-id="button-text-input-0"
+                >
+                  <div
+                    class="TextField__TextField__label-wrapper___2-MJT"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="buttonText"
+                    >
+                      Button text
+                    </label>
+                  </div>
+                  <div
+                    class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
+                  >
+                    <input
+                      aria-label="buttonText"
+                      class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-text-input"
+                      id="buttonText"
+                      name="buttonText"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="TextField__TextField__hints___3Di2P"
+                  >
+                    <p
+                      class="HelpText__HelpText___uWbja TextField__TextField__help-text___p4rVf"
+                      data-test-id="cf-ui-help-text"
+                    >
+                      The text that will be shown in the button that triggers the webhook
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-1pwo1o8"
+              >
+                <button
+                  class="TextLink__TextLink___1biUr a11y__focus-outline--default___2hwb1 css-7h4q8w TextLink__TextLink--negative___3yhMk"
+                  data-test-id="delete-webhook-button-0"
+                  type="button"
+                >
+                  <span
+                    class="TabFocusTrap__TabFocusTrap___39Vty"
+                    tabindex="-1"
+                  >
+                    Delete webhook
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="Form__Form__item___2qOZE Form__Form__item--default___1CHMK"
+          >
+            <button
+              class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO"
+              data-test-id="add-webhook-button"
+              type="button"
+            >
+              <span
+                class="TabFocusTrap__TabFocusTrap___39Vty Button__Button__inner-wrapper___3qrNC"
+                tabindex="-1"
+              >
+                <span
+                  class="Button__Button__label___3tcOj"
+                >
+                  Add Webhook
+                </span>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

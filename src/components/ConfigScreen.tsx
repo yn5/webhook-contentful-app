@@ -1,76 +1,215 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
+import styled from '@emotion/styled';
+import tokens from '@contentful/forma-36-tokens';
 import { AppExtensionSDK } from 'contentful-ui-extensions-sdk';
 import {
+  Button,
   Heading,
   Form,
   TextField,
+  TextLink,
   Workbench,
 } from '@contentful/forma-36-react-components';
 
 import { Parameters } from '../lib/types';
+import Row from './Row';
 
-function Config({ sdk }: { sdk: AppExtensionSDK }) {
-  const [appParameters, setAppParameters] = useState<Parameters>({});
+interface ConfigProps {
+  sdk: AppExtensionSDK;
+}
 
-  useEffect(() => {
-    (async () => {
-      const { app } = sdk;
-      app.setReady();
+interface ConfigState {
+  parameters: Parameters;
+}
 
-      const parameters = await app.getParameters();
-      setAppParameters(parameters || {});
-    })();
-  }, [sdk]);
+const WebhookContainer = styled.div`
+  margin-bottom: ${tokens.spacingXl};
+`;
 
-  useEffect(() => {
-    const { app } = sdk;
+const StyledTextLink = styled(TextLink)`
+  margin-bottom: ${tokens.spacingS};
+  margin-left: auto;
+`;
 
-    app.onConfigure(async () => {
-      return { parameters: appParameters };
-    });
-  });
+class Config extends Component<ConfigProps, ConfigState> {
+  constructor(props: ConfigProps) {
+    super(props);
+    this.state = { parameters: {} };
 
-  function setAppParameter(name: string, value: string) {
-    setAppParameters({
-      ...appParameters,
-      [name]: value,
+    props.sdk.app.onConfigure(() => this.onConfigure());
+  }
+
+  async componentDidMount() {
+    const parameters: Parameters | null = await this.props.sdk.app.getParameters();
+
+    this.setState(parameters ? { parameters } : this.state, () => {
+      this.props.sdk.app.setReady();
     });
   }
 
-  return (
-    <Workbench>
-      <Workbench.Content>
-        <Form>
-          <Heading>Webhook</Heading>
-          <TextField
-            name="webhookUrl"
-            id="webhookUrl"
-            labelText="Webhook URL"
-            value={appParameters.webhookUrl || ''}
-            onChange={(event) => {
-              const target = event.target as HTMLInputElement;
-              setAppParameter(target.name, target.value);
-            }}
-            testId="webhook-url-input"
-            required
-          />
+  onConfigure = async () => {
+    return {
+      parameters: this.state.parameters,
+    };
+  };
 
-          <TextField
-            name="buttonText"
-            id="buttonText"
-            labelText="Button text"
-            helpText="The text that will be shown in the button that triggers the webhook"
-            value={appParameters.buttonText || ''}
-            onChange={(event) => {
-              const target = event.target as HTMLInputElement;
-              setAppParameter(target.name, target.value);
-            }}
-            testId="button-text-input"
-          />
-        </Form>
-      </Workbench.Content>
-    </Workbench>
-  );
+  setWebhookParameter(index: number, name: string, value: string) {
+    const { parameters } = this.state;
+
+    if (!parameters?.webhooks) {
+      return;
+    }
+
+    this.setState({
+      parameters: {
+        ...parameters,
+        webhooks: [
+          ...parameters.webhooks.slice(0, index),
+          {
+            ...parameters.webhooks[index],
+            [name]: value,
+          },
+          ...parameters.webhooks.slice(index + 1),
+        ],
+      },
+    });
+  }
+
+  addWebhook = () => {
+    const { parameters } = this.state;
+
+    this.setState({
+      parameters: {
+        ...parameters,
+        webhooks: [
+          ...(parameters.webhooks || []),
+          {
+            buttonText: undefined,
+            name: undefined,
+            webhookUrl: undefined,
+          },
+        ],
+      },
+    });
+  };
+
+  removeWebhook = (index: number) => {
+    const { parameters } = this.state;
+
+    if (!parameters?.webhooks) {
+      return;
+    }
+
+    if (this.state.parameters.webhooks?.length === 1) {
+      this.setState({
+        parameters: {
+          ...parameters,
+          webhooks: undefined,
+        },
+      });
+      return;
+    }
+
+    this.setState({
+      parameters: {
+        ...parameters,
+        webhooks: [
+          ...parameters.webhooks.slice(0, index),
+          ...parameters.webhooks.slice(index + 1),
+        ],
+      },
+    });
+  };
+
+  render() {
+    const { parameters } = this.state;
+    const { webhooks } = parameters;
+
+    return (
+      <Workbench testId="container">
+        <Workbench.Content>
+          <Form>
+            {webhooks?.map((webhook, index) => {
+              return (
+                <WebhookContainer
+                  key={String(index)}
+                  data-test-id={`webhook-fields-${index}`}
+                >
+                  <Heading>{webhook.name || `Webhook ${index + 1}`}</Heading>
+                  <Row>
+                    <TextField
+                      name="name"
+                      id="name"
+                      labelText="Name"
+                      value={webhook.name || ''}
+                      onChange={(event) => {
+                        const target = event.target as HTMLInputElement;
+                        this.setWebhookParameter(
+                          index,
+                          target.name,
+                          target.value
+                        );
+                      }}
+                      testId={`name-input-${index}`}
+                      required
+                    />
+                  </Row>
+                  <Row>
+                    <TextField
+                      name="webhookUrl"
+                      id="webhookUrl"
+                      labelText="Webhook URL"
+                      value={webhook.webhookUrl || ''}
+                      onChange={(event) => {
+                        const target = event.target as HTMLInputElement;
+                        this.setWebhookParameter(
+                          index,
+                          target.name,
+                          target.value
+                        );
+                      }}
+                      testId={`webhook-url-input-${index}`}
+                      required
+                    />
+                  </Row>
+                  <Row>
+                    <TextField
+                      name="buttonText"
+                      id="buttonText"
+                      labelText="Button text"
+                      helpText="The text that will be shown in the button that triggers the webhook"
+                      value={webhook.buttonText || ''}
+                      onChange={(event) => {
+                        const target = event.target as HTMLInputElement;
+                        this.setWebhookParameter(
+                          index,
+                          target.name,
+                          target.value
+                        );
+                      }}
+                      testId={`button-text-input-${index}`}
+                    />
+                  </Row>
+                  <Row>
+                    <StyledTextLink
+                      linkType="negative"
+                      onClick={() => this.removeWebhook(index)}
+                      testId={`delete-webhook-button-${index}`}
+                    >
+                      Delete webhook
+                    </StyledTextLink>
+                  </Row>
+                </WebhookContainer>
+              );
+            })}
+            <Button onClick={this.addWebhook} testId="add-webhook-button">
+              Add Webhook
+            </Button>
+          </Form>
+        </Workbench.Content>
+      </Workbench>
+    );
+  }
 }
 
 export default Config;
