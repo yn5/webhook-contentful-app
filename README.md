@@ -111,6 +111,10 @@ These are the most fundamental dependencies. For a complete list of dependencies
 
 ## Deployment
 
+This project is deployed on Vercel at https://webhook-contentful-app.vercel.app. **While anyone is free to make use of that deployment please beware that USAGE IS AT OWN RISK! This repository and thus the deployment it's tightly coupled to is subject to change and there is no guarantee backwards incompatible changes won't happen!**
+
+It would be best to fork this repository and host it yourself:
+
 1. Build the project:
 
 ```bash
