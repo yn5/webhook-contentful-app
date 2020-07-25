@@ -9,16 +9,19 @@ import Row from './Row';
 import Select from './Select';
 
 const copy = {
-  noWebhooks: "There are no webhook(s) configured in the app's configuration",
-  noWebhookUrl:
-    "No webhook URL is configured for this webhook in the app's configuration",
+  noWebhooks: "There is no webhook configured in the app's configuration",
+  noWebhookUrl: 'No webhook URL is configured',
   triggerFailed: 'Trigger failed',
   triggerSucceeded: 'Trigger succeeded',
   triggerWebhook: 'Trigger webhook',
 };
 
-const Container = styled.div`
-  min-height: 180px;
+interface ContainerProps {
+  hasSelect: boolean;
+}
+
+const Container = styled.div<ContainerProps>`
+  min-height: ${({ hasSelect }) => (hasSelect ? '160px' : '120px')};
 `;
 
 const StyledNote = styled(Note)`
@@ -44,9 +47,9 @@ function Sidebar({ sdk }: SidebarProps) {
 
   if (!webhooks) {
     return (
-      <StyledNote noteType="warning" testId="no-webhooks-note">
+      <Note noteType="warning" testId="no-webhooks-note">
         {copy.noWebhooks}
-      </StyledNote>
+      </Note>
     );
   }
 
@@ -80,13 +83,15 @@ function Sidebar({ sdk }: SidebarProps) {
   }
 
   return (
-    <Container>
+    <Container hasSelect={dropdownItems.length > 1}>
       {dropdownItems.length > 1 && (
-        <Select
-          items={dropdownItems}
-          onChange={(index) => setSelectedWebhook(index)}
-          testId="webhook-select"
-        />
+        <Row>
+          <Select
+            items={dropdownItems}
+            onChange={(index) => setSelectedWebhook(index)}
+            testId="webhook-select"
+          />
+        </Row>
       )}
       <Row>
         <Button

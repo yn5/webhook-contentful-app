@@ -72,14 +72,18 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
               class="css-1diq458"
               data-test-id="webhook-fields-0"
             >
-              <h1
-                class="Heading__Heading___83D3K"
-                data-test-id="cf-ui-heading"
-              >
-                Test
-              </h1>
               <div
-                class="css-1pwo1o8"
+                class="css-10wjke7"
+              >
+                <h1
+                  class="Heading__Heading___83D3K"
+                  data-test-id="cf-ui-heading"
+                >
+                  Test
+                </h1>
+              </div>
+              <div
+                class="css-10wjke7"
               >
                 <div
                   class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
@@ -119,7 +123,7 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
                 </div>
               </div>
               <div
-                class="css-1pwo1o8"
+                class="css-10wjke7"
               >
                 <div
                   class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
@@ -159,7 +163,7 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
                 </div>
               </div>
               <div
-                class="css-1pwo1o8"
+                class="css-10wjke7"
               >
                 <div
                   class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
@@ -201,7 +205,7 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
                 </div>
               </div>
               <div
-                class="css-1pwo1o8"
+                class="css-10wjke7"
               >
                 <button
                   class="TextLink__TextLink___1biUr a11y__focus-outline--default___2hwb1 css-7h4q8w TextLink__TextLink--negative___3yhMk"
@@ -271,14 +275,18 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
               class="css-1diq458"
               data-test-id="webhook-fields-0"
             >
-              <h1
-                class="Heading__Heading___83D3K"
-                data-test-id="cf-ui-heading"
-              >
-                Webhook 1
-              </h1>
               <div
-                class="css-1pwo1o8"
+                class="css-10wjke7"
+              >
+                <h1
+                  class="Heading__Heading___83D3K"
+                  data-test-id="cf-ui-heading"
+                >
+                  Webhook 1
+                </h1>
+              </div>
+              <div
+                class="css-10wjke7"
               >
                 <div
                   class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
@@ -318,7 +326,7 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="css-1pwo1o8"
+                class="css-10wjke7"
               >
                 <div
                   class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
@@ -358,7 +366,7 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="css-1pwo1o8"
+                class="css-10wjke7"
               >
                 <div
                   class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
@@ -400,7 +408,7 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="css-1pwo1o8"
+                class="css-10wjke7"
               >
                 <button
                   class="TextLink__TextLink___1biUr a11y__focus-outline--default___2hwb1 css-7h4q8w TextLink__TextLink--negative___3yhMk"

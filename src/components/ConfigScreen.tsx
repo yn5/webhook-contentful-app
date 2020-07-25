@@ -135,7 +135,9 @@ class Config extends Component<ConfigProps, ConfigState> {
                   key={String(index)}
                   data-test-id={`webhook-fields-${index}`}
                 >
-                  <Heading>{webhook.name || `Webhook ${index + 1}`}</Heading>
+                  <Row>
+                    <Heading>{webhook.name || `Webhook ${index + 1}`}</Heading>
+                  </Row>
                   <Row>
                     <TextField
                       name="name"
