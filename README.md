@@ -1,4 +1,4 @@
-[![Test Action Status](https://github.com/yn5/webhook-contentful-app/workflows/Test/badge.svg)](https://github.com/yn5/webhook-contentful-app/actions)
+[![Tests Action Status](https://github.com/yn5/webhook-contentful-app/workflows/Tests/badge.svg)](https://github.com/yn5/webhook-contentful-app/actions)
 
 # Webhook Contentful app
 
