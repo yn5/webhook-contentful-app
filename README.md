@@ -65,13 +65,13 @@ You will also see any lint errors in the console.
 
 ### Styling
 
-For styling [@emotion/styled-components](https://emotion.sh/docs/styled) is used. In general styling inside a component should not contain styling for positioning, margins, specific one off styles and other concerns that belong to a parent component that uses it.
+For styling [@emotion/styled-components](https://emotion.sh/docs/styled) is used.
 
-For positioning a component [emotion's "Styling any component" functionality](https://emotion.sh/docs/styled#styling-any-component) for extending styles should be used:
+For positioning a component [emotion's "Styling any component" functionality](https://emotion.sh/docs/styled#styling-any-component) for extending styles is preferred in order to keep the DOM elements to a minimum:
 
 ```javascript
 import styled from '@emotion/styled';
-import Menu from 'components/menu';
+import Menu from './menu';
 
 const StyledMenu = styled(Menu)`
   top: 96px;
@@ -79,10 +79,8 @@ const StyledMenu = styled(Menu)`
   margin-bottom: 16px;
 `;
 
-export default functin Example() {
-  return (
-    <StyledMenu />
-  );
+export default function Example() {
+  return <StyledMenu />;
 }
 ```
 
