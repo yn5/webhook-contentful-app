@@ -5,9 +5,9 @@ import Config from '../components/ConfigScreen';
 
 const sdkMock = {
   app: {
-    getParameters: () => {},
-    onConfigure: () => {},
-    setReady: () => {},
+    getParameters: () => ({}),
+    onConfigure: () => ({}),
+    setReady: () => ({}),
   },
 } as any;
 

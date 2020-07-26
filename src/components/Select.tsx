@@ -14,7 +14,7 @@ interface SelectProps {
   testId?: string;
 }
 
-function Select({ items, onChange, testId }: SelectProps) {
+function Select({ items, onChange, testId }: SelectProps): React.ReactElement {
   return (
     <FormaSelect
       onChange={(event) => {

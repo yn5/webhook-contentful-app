@@ -39,7 +39,7 @@ class Config extends Component<ConfigProps, ConfigState> {
     props.sdk.app.onConfigure(() => this.onConfigure());
   }
 
-  async componentDidMount() {
+  async componentDidMount(): Promise<void> {
     const parameters: Parameters | null = await this.props.sdk.app.getParameters();
 
     this.setState(parameters ? { parameters } : this.state, () => {
@@ -47,13 +47,13 @@ class Config extends Component<ConfigProps, ConfigState> {
     });
   }
 
-  onConfigure = async () => {
+  onConfigure = (): ConfigState => {
     return {
       parameters: this.state.parameters,
     };
   };
 
-  setWebhookParameter(index: number, name: string, value: string) {
+  setWebhookParameter(index: number, name: string, value: string): void {
     const { parameters } = this.state;
 
     if (!parameters?.webhooks) {
@@ -75,7 +75,7 @@ class Config extends Component<ConfigProps, ConfigState> {
     });
   }
 
-  addWebhook = () => {
+  addWebhook = (): void => {
     const { parameters } = this.state;
 
     this.setState({
@@ -93,7 +93,7 @@ class Config extends Component<ConfigProps, ConfigState> {
     });
   };
 
-  removeWebhook = (index: number) => {
+  removeWebhook = (index: number): void => {
     const { parameters } = this.state;
 
     if (!parameters?.webhooks) {
@@ -121,7 +121,7 @@ class Config extends Component<ConfigProps, ConfigState> {
     });
   };
 
-  render() {
+  render(): React.ReactElement {
     const { parameters } = this.state;
     const { webhooks } = parameters;
 
