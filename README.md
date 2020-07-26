@@ -86,7 +86,7 @@ export default function Example() {
 
 ### Committing
 
-[Husky](https://github.com/typicode/husky) is used to run the `format` and `test` scripts before every commit and only allows the commit if all scripts pass successfully.
+[Husky](https://github.com/typicode/husky) is used to run the `lint`, `format` and `test` scripts before every commit and only allows the commit if all scripts pass successfully.
 
 For commit messages, [conventional commits](https://www.conventionalcommits.org/) is used.
 
