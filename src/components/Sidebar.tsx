@@ -32,7 +32,7 @@ interface SidebarProps {
   sdk: SidebarExtensionSDK;
 }
 
-function Sidebar({ sdk }: SidebarProps) {
+function Sidebar({ sdk }: SidebarProps): React.ReactElement {
   const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
