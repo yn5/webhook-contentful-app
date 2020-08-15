@@ -11,7 +11,7 @@ import {
   Workbench,
 } from '@contentful/forma-36-react-components';
 
-import { Parameters } from '../lib/types';
+import { ContentType, Parameters } from '../lib/types';
 import Row from './Row';
 
 interface ConfigProps {
@@ -20,6 +20,9 @@ interface ConfigProps {
 
 interface ConfigState {
   parameters: Parameters;
+  targetState?: {
+    EditorInterface: { [key: string]: { sidebar: { position: number } } };
+  };
 }
 
 const WebhookContainer = styled.div`
@@ -47,9 +50,21 @@ class Config extends Component<ConfigProps, ConfigState> {
     });
   }
 
-  onConfigure = (): ConfigState => {
+  onConfigure = async (): Promise<ConfigState> => {
+    const {
+      items: contentTypes,
+    }: { items: ContentType[] } = await this.props.sdk.space.getContentTypes();
+
+    const contentTypeIds = contentTypes.map(
+      (contentType) => contentType.sys.id
+    );
+    const EditorInterface = contentTypeIds.reduce((result, id) => {
+      return { ...result, [id]: { sidebar: { position: 0 } } };
+    }, {});
+
     return {
       parameters: this.state.parameters,
+      targetState: { EditorInterface },
     };
   };
 

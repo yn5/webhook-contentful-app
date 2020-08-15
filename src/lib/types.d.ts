@@ -4,6 +4,12 @@ interface Webhook {
   webhookUrl?: string;
 }
 
+export interface ContentType {
+  sys: { id: string };
+  name: string;
+  fields?: Field[];
+}
+
 export interface Parameters {
   webhooks?: Webhook[];
 }
