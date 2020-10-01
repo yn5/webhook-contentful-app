@@ -1,36 +1,42 @@
+![Contentful App](https://img.shields.io/badge/Contentful-App-blue)
 [![Tests Action Status](https://github.com/yn5/webhook-contentful-app/workflows/Tests/badge.svg)](https://github.com/yn5/webhook-contentful-app/actions)
 
 # Webhook Contentful app
 
-> A Contentful app extension to trigger a webhook from the sidebar.
+> A Contentful App to trigger a custom webhook from the sidebar.
+
+![Screenshot of the Configuration Screen and the Webhook app in the sidebar](./screenshot.png)
 
 This project was bootstrapped with [Create Contentful App](https://github.com/contentful/create-contentful-app).
 
-## Usage
+## Setup
 
-1. Serve a build of the app. (See [deployment instructions](#deployment) on how to deploy.)
+[The Contentful App Framework](https://www.contentful.com/developers/docs/extensibility/app-framework/) allows developers to extend the Contentful UI with custom functionality. You can install the app and use its hosted version without editing any code.
 
-2. Create an app in a Contentful organisation's Apps settings using the URL where the app is served.
+To install this app head over to your organization settings and create a new app.
 
-3. Install the app in one of the organisation's spaces in the space's Apps settings.
+![Installation dialog](./docs/installation.png)
 
-4. Add the app's sidebar view to one or more content type's custom sidebar in the content type's sidebar configuratin.
+Define the application name you prefer and the following App URL: `https://webhook-contentful-app.vercel.app`.
 
-### Deployment
+**While anyone is free to make use of the public app be aware that USAGE IS AT OWN RISK.** The public version is tightly coupled to my use case and can change. There is no guarantee for backwards-compatibility.
 
-This project is deployed on Vercel at https://webhook-contentful-app.vercel.app. **While anyone is free to make use of that deployment please beware that USAGE IS AT OWN RISK! This repository and thus the deployment it's tightly coupled to is subject to change and there is no guarantee backwards incompatible changes won't happen!**
+**It's recommended to fork the repository and deploy your own version.**
 
-It would be best to fork this repository and host it yourself:
+This app supports the following locations in the Contentful UI:
 
-0. (Make sure the repository is cloned and the dependencies are installed. See [getting-started](#getting-started) instructions.)
+- (Required) App configuration screen (`app-config`) – configure and define webhooks that will be trigger from the sidebar
+- (Required) Entry sidebar (`entry-sidebar`) - trigger HTTP webhooks
 
-1. Build the project:
+_Make sure to enable the App configuration screen to configure the application._
 
-```bash
-npm run build
-```
+![App configuration dialog](./docs/app-config.png)
 
-2. Serve the resulting `build` folder.
+Install the app into your preferred space. Create and save a new webhook in it's app configuration.
+
+![Content type sidebar configuration dialog](./docs/sidebar-config.png)
+
+Enter the content modelling section in your space and modify the sidebar configation of a content type to show the app in the sidebar.
 
 ## Development
 
@@ -60,8 +66,15 @@ npm run start
 Creates or update your app definition in contentful, and runs the app in development mode on http://localhost:3000.
 Open your app to view it in the browser.
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+The page will reload if you make edits. You will also see any lint errors in the console.
+
+3. Generate the built app
+
+```bash
+npm run build
+```
+
+Creates a production bundle that you can host on various hosting platforms.
 
 ### Styling
 
