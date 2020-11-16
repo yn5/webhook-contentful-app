@@ -24,7 +24,7 @@ init((sdk) => {
     },
     {
       location: locations.LOCATION_ENTRY_SIDEBAR,
-      component: <Sidebar sdk={sdk as SidebarExtensionSDK} />
+      component: <Sidebar sdk={sdk as SidebarExtensionSDK} />,
     },
   ];
 
