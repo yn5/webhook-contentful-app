@@ -8,9 +8,11 @@ exports[`Config When there are no webhooks Should match snapshot 1`] = `
   <div
     class="Workbench__Workbench__content-wrapper___3yWKi"
   >
-    <div
+    <main
+      aria-label="Main content"
       class="Workbench__Workbench__content___1U8bV"
       data-test-id="cf-ui-workbench-content"
+      id="main-content"
     >
       <div
         class="Workbench__Workbench__content-inner___36_Hx Workbench__Workbench__content-inner--default___2wRXn"
@@ -23,7 +25,7 @@ exports[`Config When there are no webhooks Should match snapshot 1`] = `
             class="Form__Form__item___2qOZE Form__Form__item--default___1CHMK"
           >
             <button
-              class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO"
+              class="Button__Button___1ZfFj Button__Button--primary___JImeO"
               data-test-id="add-webhook-button"
               type="button"
             >
@@ -41,7 +43,7 @@ exports[`Config When there are no webhooks Should match snapshot 1`] = `
           </div>
         </form>
       </div>
-    </div>
+    </main>
   </div>
 </div>
 `;
@@ -54,9 +56,11 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
   <div
     class="Workbench__Workbench__content-wrapper___3yWKi"
   >
-    <div
+    <main
+      aria-label="Main content"
       class="Workbench__Workbench__content___1U8bV"
       data-test-id="cf-ui-workbench-content"
+      id="main-content"
     >
       <div
         class="Workbench__Workbench__content-inner___36_Hx Workbench__Workbench__content-inner--default___2wRXn"
@@ -111,7 +115,6 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
                     class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
                   >
                     <input
-                      aria-label="name"
                       class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
                       data-test-id="cf-ui-text-input"
                       id="name"
@@ -151,7 +154,6 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
                     class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
                   >
                     <input
-                      aria-label="webhookUrl"
                       class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
                       data-test-id="cf-ui-text-input"
                       id="webhookUrl"
@@ -184,7 +186,6 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
                     class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
                   >
                     <input
-                      aria-label="buttonText"
                       class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
                       data-test-id="cf-ui-text-input"
                       id="buttonText"
@@ -226,7 +227,7 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
             class="Form__Form__item___2qOZE Form__Form__item--default___1CHMK"
           >
             <button
-              class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO"
+              class="Button__Button___1ZfFj Button__Button--primary___JImeO"
               data-test-id="add-webhook-button"
               type="button"
             >
@@ -244,7 +245,7 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
           </div>
         </form>
       </div>
-    </div>
+    </main>
   </div>
 </div>
 `;
@@ -257,9 +258,11 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
   <div
     class="Workbench__Workbench__content-wrapper___3yWKi"
   >
-    <div
+    <main
+      aria-label="Main content"
       class="Workbench__Workbench__content___1U8bV"
       data-test-id="cf-ui-workbench-content"
+      id="main-content"
     >
       <div
         class="Workbench__Workbench__content-inner___36_Hx Workbench__Workbench__content-inner--default___2wRXn"
@@ -314,7 +317,6 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
                     class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
                   >
                     <input
-                      aria-label="name"
                       class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
                       data-test-id="cf-ui-text-input"
                       id="name"
@@ -354,7 +356,6 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
                     class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
                   >
                     <input
-                      aria-label="webhookUrl"
                       class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
                       data-test-id="cf-ui-text-input"
                       id="webhookUrl"
@@ -387,7 +388,6 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
                     class="TextInput__TextInput___36-K- TextInput__TextInput--full___1EJEW"
                   >
                     <input
-                      aria-label="buttonText"
                       class="TextInput__TextInput__input___27vDB a11y__focus-border--default___60AXp"
                       data-test-id="cf-ui-text-input"
                       id="buttonText"
@@ -429,7 +429,7 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
             class="Form__Form__item___2qOZE Form__Form__item--default___1CHMK"
           >
             <button
-              class="Button__Button___1ZfFj a11y__focus-border--default___60AXp Button__Button--primary___JImeO"
+              class="Button__Button___1ZfFj Button__Button--primary___JImeO"
               data-test-id="add-webhook-button"
               type="button"
             >
@@ -447,7 +447,7 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
           </div>
         </form>
       </div>
-    </div>
+    </main>
   </div>
 </div>
 `;

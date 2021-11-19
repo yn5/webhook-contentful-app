@@ -32,14 +32,14 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.0",
     "husky": "^7.0.4",
-    "jest-environment-jsdom-fourteen": "^1.0.1",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
     "prettier": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test --env=jsdom-fourteen --verbose --colors",
-    "test:watch": "react-scripts test --env=jsdom-fourteen --verbose",
+    "test": "CI=true react-scripts test --env=jsdom-sixteen --verbose --colors",
+    "test:watch": "react-scripts test --env=jsdom-sixteen --verbose",
     "lint": "eslint ./src/**/*.*",
     "lint:fix": "eslint ./src/**/*.* --fix",
     "format": "prettier --check src/**/*.*",
