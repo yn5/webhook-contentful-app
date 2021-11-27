@@ -43,7 +43,8 @@ class Config extends Component<ConfigProps, ConfigState> {
   }
 
   async componentDidMount(): Promise<void> {
-    const parameters: Parameters | null = await this.props.sdk.app.getParameters();
+    const parameters: Parameters | null =
+      await this.props.sdk.app.getParameters();
 
     this.setState(parameters ? { parameters } : this.state, () => {
       this.props.sdk.app.setReady();
@@ -51,9 +52,8 @@ class Config extends Component<ConfigProps, ConfigState> {
   }
 
   onConfigure = async (): Promise<ConfigState> => {
-    const {
-      items: contentTypes,
-    }: { items: ContentType[] } = await this.props.sdk.space.getContentTypes();
+    const { items: contentTypes }: { items: ContentType[] } =
+      await this.props.sdk.space.getContentTypes();
 
     const contentTypeIds = contentTypes.map(
       (contentType) => contentType.sys.id

@@ -2,54 +2,54 @@
   "name": "webhook-contentful-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=14.0.0 <15.0.0",
+    "npm": "^6.14.15"
+  },
   "dependencies": {
-    "@contentful/field-editor-single-line": "^0.11.0",
-    "@contentful/field-editor-test-utils": "^0.6.4",
-    "@contentful/forma-36-fcss": "0.2.11",
-    "@contentful/forma-36-react-components": "^3.42.2",
-    "@contentful/forma-36-tokens": "^0.9.1",
-    "@emotion/core": "^10.1.1",
-    "@emotion/styled": "^10.0.27",
-    "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.0.13",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^14.14.12",
-    "@types/react": "^16.9.56",
-    "@types/react-dom": "^17.0.0",
-    "contentful-ui-extensions-sdk": "^3.25.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.13.1",
-    "react-scripts": "4.0.0",
-    "typescript": "^4.1.2"
+    "@contentful/field-editor-single-line": "^1.0.1",
+    "@contentful/field-editor-test-utils": "^1.0.1",
+    "@contentful/forma-36-fcss": "0.3.4",
+    "@contentful/forma-36-react-components": "^3.100.3",
+    "@contentful/forma-36-tokens": "^0.11.1",
+    "@emotion/core": "^11.0.0",
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.8",
+    "@types/react": "^17.0.35",
+    "@types/react-dom": "^17.0.11",
+    "contentful-ui-extensions-sdk": "^4.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.5.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^11.0.0",
-    "@commitlint/config-conventional": "^11.0.0",
-    "@typescript-eslint/eslint-plugin": "^3.7.0",
-    "@typescript-eslint/parser": "^3.7.0",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.21.5",
-    "husky": "^4.3.0",
-    "jest-environment-jsdom-fourteen": "^1.0.1",
-    "prettier": "^2.2.1"
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.0",
+    "husky": "^7.0.4",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
+    "prettier": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test --env=jsdom-fourteen --verbose --colors",
-    "test:watch": "react-scripts test --env=jsdom-fourteen --verbose",
+    "test": "CI=true react-scripts test --env=jsdom-sixteen --verbose --colors",
+    "test:watch": "react-scripts test --env=jsdom-sixteen --verbose",
     "lint": "eslint ./src/**/*.*",
     "lint:fix": "eslint ./src/**/*.* --fix",
     "format": "prettier --check src/**/*.*",
-    "format:fix": "prettier --write src/**/*.*"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run format && npm run test",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "format:fix": "prettier --write src/**/*.*",
+    "prepare": "husky install"
   },
   "commitlint": {
     "extends": [
@@ -64,8 +64,7 @@
     "extends": [
       "plugin:react/recommended",
       "plugin:@typescript-eslint/recommended",
-      "prettier/@typescript-eslint",
-      "plugin:prettier/recommended"
+      "prettier"
     ],
     "settings": {
       "react": {

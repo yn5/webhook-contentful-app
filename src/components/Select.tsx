@@ -18,7 +18,7 @@ function Select({ items, onChange, testId }: SelectProps): React.ReactElement {
   return (
     <FormaSelect
       onChange={(event) => {
-        const target = event.target as HTMLInputElement;
+        const target = event.target as unknown as HTMLInputElement;
         onChange(Number(target.value));
       }}
       testId={testId}
