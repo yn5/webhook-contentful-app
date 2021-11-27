@@ -2,6 +2,10 @@
   "name": "webhook-contentful-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=14.0.0 <15.0.0",
+    "npm": "^6.14.15"
+  },
   "dependencies": {
     "@contentful/field-editor-single-line": "^1.0.1",
     "@contentful/field-editor-test-utils": "^1.0.1",
