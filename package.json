@@ -13,9 +13,9 @@
     "@contentful/forma-36-react-components": "^3.100.4",
     "@contentful/forma-36-tokens": "^0.11.1",
     "@emotion/core": "^11.0.0",
-    "@emotion/react": "^11.7.0",
+    "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.0.3",
@@ -38,7 +38,7 @@
     "eslint-plugin-react": "^7.27.1",
     "husky": "^7.0.4",
     "jest-environment-jsdom-sixteen": "^2.0.0",
-    "prettier": "^2.5.0"
+    "prettier": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
