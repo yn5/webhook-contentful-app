@@ -50,7 +50,7 @@ class Config extends Component<ConfigProps, ConfigState> {
     };
   };
 
-  setWebhookParameter(index: number, name: string, value: string): void {
+  setWebhookParameter = (index: number, name: string, value: string) => {
     const { parameters } = this.state;
 
     if (!parameters?.webhooks) {
@@ -70,9 +70,9 @@ class Config extends Component<ConfigProps, ConfigState> {
         ],
       },
     });
-  }
+  };
 
-  addWebhook = (): void => {
+  addWebhook = () => {
     const { parameters } = this.state;
 
     this.setState({

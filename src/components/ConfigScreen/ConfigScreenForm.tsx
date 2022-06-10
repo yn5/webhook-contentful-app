@@ -52,7 +52,7 @@ export function ConfigScreenForm({
                 labelText="Name"
                 value={webhook.name || ''}
                 onChange={(event) => {
-                  const target = event.target as HTMLInputElement;
+                  const target = event.target;
                   setWebhookParameter(index, target.name, target.value);
                 }}
                 testId={`name-input-${index}`}
@@ -66,7 +66,7 @@ export function ConfigScreenForm({
                 labelText="Webhook URL"
                 value={webhook.webhookUrl || ''}
                 onChange={(event) => {
-                  const target = event.target as HTMLInputElement;
+                  const target = event.target;
                   setWebhookParameter(index, target.name, target.value);
                 }}
                 testId={`webhook-url-input-${index}`}
@@ -81,10 +81,38 @@ export function ConfigScreenForm({
                 helpText="The text that will be shown in the button that triggers the webhook"
                 value={webhook.buttonText || ''}
                 onChange={(event) => {
-                  const target = event.target as HTMLInputElement;
+                  const target = event.target;
                   setWebhookParameter(index, target.name, target.value);
                 }}
                 testId={`button-text-input-${index}`}
+              />
+            </Row>
+            <Row>
+              <TextField
+                name="requestMethod"
+                id="requestMethod"
+                labelText="Request method"
+                helpText="The method of the request sent (GET, POST, PUT or PATCH, etc.). POST is the default if this is left empty."
+                value={webhook.requestMethod || ''}
+                onChange={(event) => {
+                  const target = event.target;
+                  setWebhookParameter(index, target.name, target.value);
+                }}
+                testId={`request-method-input-${index}`}
+              />
+            </Row>
+            <Row>
+              <TextField
+                name="requestBody"
+                id="requestBody"
+                labelText="Request body"
+                helpText="The body of the request sent (if applicable, this field will throw an error for a GET request for instance)."
+                value={webhook.requestBody || ''}
+                onChange={(event) => {
+                  const target = event.target;
+                  setWebhookParameter(index, target.name, target.value);
+                }}
+                testId={`request-body-input-${index}`}
               />
             </Row>
             <Row>

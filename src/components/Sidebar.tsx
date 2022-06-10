@@ -33,7 +33,7 @@ interface SidebarProps {
 }
 
 function Sidebar({ sdk }: SidebarProps): React.ReactElement {
-  const [error, setError] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
   const [selectedWebhook, setSelectedWebhook] = useState<number>(0);
@@ -60,7 +60,7 @@ function Sidebar({ sdk }: SidebarProps): React.ReactElement {
   const { webhookUrl } = webhook;
 
   async function handleClick() {
-    setError(false);
+    setError(null);
     setLoading(true);
     setSuccess(false);
 
@@ -68,18 +68,27 @@ function Sidebar({ sdk }: SidebarProps): React.ReactElement {
       return;
     }
 
-    const response = await fetch(webhookUrl, {
-      method: 'POST',
-    });
+    try {
+      const response = await fetch(webhookUrl, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: webhook.requestMethod || 'POST',
+        body: webhook.requestBody || undefined,
+      });
 
-    setLoading(false);
+      setLoading(false);
 
-    if (!response.ok) {
-      setError(true);
-      return;
+      if (!response.ok) {
+        setError(response.statusText);
+        return;
+      }
+
+      setSuccess(true);
+    } catch (error) {
+      setLoading(false);
+      setError(String(error));
     }
-
-    setSuccess(true);
   }
 
   return (
@@ -117,6 +126,8 @@ function Sidebar({ sdk }: SidebarProps): React.ReactElement {
       {error && (
         <StyledNote noteType="negative" testId="failure-note">
           {copy.triggerFailed}
+          <br />
+          {error}
         </StyledNote>
       )}
     </Container>
