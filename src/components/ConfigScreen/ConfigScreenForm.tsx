@@ -7,10 +7,14 @@ import {
   Form,
   TextField,
   TextLink,
+  SelectField,
+  Option,
 } from '@contentful/forma-36-react-components';
 
 import { Webhook } from '../../lib/types';
 import Row from '../Row';
+
+const requestMethods = ['POST', 'GET', 'PUT', 'PATCH', 'DELETE'];
 
 const WebhookContainer = styled.div`
   margin-bottom: ${tokens.spacingXl};
@@ -23,14 +27,18 @@ const StyledTextLink = styled(TextLink)`
 
 type TProps = {
   addWebhook: () => void;
+  fieldErrors: { [name: string]: string }[];
   removeWebhook: (index: number) => void;
+  setFieldError: (index: number, name: string, error: string | null) => void;
   setWebhookParameter: (index: number, name: string, value: string) => void;
   webhooks: Webhook[] | undefined;
 };
 
 export function ConfigScreenForm({
   addWebhook,
+  fieldErrors,
   removeWebhook,
+  setFieldError,
   setWebhookParameter,
   webhooks,
 }: TProps) {
@@ -88,31 +96,51 @@ export function ConfigScreenForm({
               />
             </Row>
             <Row>
-              <TextField
+              <SelectField
                 name="requestMethod"
                 id="requestMethod"
                 labelText="Request method"
-                helpText="The method of the request sent (GET, POST, PUT or PATCH, etc.). POST is the default if this is left empty."
+                helpText="The method of the request sent."
                 value={webhook.requestMethod || ''}
                 onChange={(event) => {
                   const target = event.target;
                   setWebhookParameter(index, target.name, target.value);
                 }}
                 testId={`request-method-input-${index}`}
-              />
+              >
+                {requestMethods.map((requestMethod) => (
+                  <Option key={requestMethod} value={requestMethod}>
+                    {requestMethod}
+                  </Option>
+                ))}
+              </SelectField>
             </Row>
             <Row>
               <TextField
                 name="requestBody"
                 id="requestBody"
                 labelText="Request body"
-                helpText="The body of the request sent (if applicable, this field will throw an error for a GET request for instance)."
+                helpText="JSON for the body of the request sent (if applicable, this field will throw an error for a GET request for instance)."
                 value={webhook.requestBody || ''}
                 onChange={(event) => {
                   const target = event.target;
                   setWebhookParameter(index, target.name, target.value);
+
+                  if (!target.value?.length) {
+                    setFieldError(index, target.name, null);
+                    return;
+                  }
+
+                  try {
+                    JSON.parse(target.value);
+                    setFieldError(index, target.name, null);
+                  } catch (e) {
+                    setFieldError(index, target.name, 'Invalid JSON');
+                  }
                 }}
                 testId={`request-body-input-${index}`}
+                validationMessage={fieldErrors[index]?.requestBody}
+                textarea
               />
             </Row>
             <Row>

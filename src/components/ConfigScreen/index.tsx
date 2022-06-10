@@ -9,7 +9,10 @@ interface ConfigProps {
   sdk: AppExtensionSDK;
 }
 
+type TFieldErrors = { [name: string]: string }[];
+
 interface ConfigState {
+  fieldErrors: TFieldErrors;
   parameters: Parameters;
   targetState?: {
     EditorInterface: { [key: string]: { sidebar: { position: number } } };
@@ -19,7 +22,7 @@ interface ConfigState {
 class Config extends Component<ConfigProps, ConfigState> {
   constructor(props: ConfigProps) {
     super(props);
-    this.state = { parameters: {} };
+    this.state = { parameters: {}, fieldErrors: [] };
 
     props.sdk.app.onConfigure(() => this.onConfigure());
   }
@@ -28,12 +31,15 @@ class Config extends Component<ConfigProps, ConfigState> {
     const parameters: Parameters | null =
       await this.props.sdk.app.getParameters();
 
-    this.setState(parameters ? { parameters } : this.state, () => {
-      this.props.sdk.app.setReady();
-    });
+    this.setState(
+      parameters ? { ...this.state, parameters } : this.state,
+      () => {
+        this.props.sdk.app.setReady();
+      }
+    );
   }
 
-  onConfigure = async (): Promise<ConfigState> => {
+  onConfigure = async (): Promise<Omit<ConfigState, 'fieldErrors'>> => {
     const { items: contentTypes }: { items: ContentType[] } =
       await this.props.sdk.space.getContentTypes();
 
@@ -118,8 +124,29 @@ class Config extends Component<ConfigProps, ConfigState> {
     });
   };
 
+  setFieldError = (index: number, name: string, error: string | null) => {
+    let newFieldErrors: TFieldErrors;
+
+    if (error === null) {
+      newFieldErrors = [
+        ...this.state.fieldErrors.slice(0, index),
+        ...this.state.fieldErrors.slice(index + 1),
+      ];
+    } else {
+      newFieldErrors = [...this.state.fieldErrors];
+      newFieldErrors[index] = {
+        ...this.state.fieldErrors[index],
+        [name]: error,
+      };
+    }
+
+    this.setState({
+      fieldErrors: newFieldErrors,
+    });
+  };
+
   render(): React.ReactElement {
-    const { parameters } = this.state;
+    const { fieldErrors, parameters } = this.state;
     const { webhooks } = parameters;
 
     return (
@@ -127,6 +154,8 @@ class Config extends Component<ConfigProps, ConfigState> {
         <Workbench.Content>
           <ConfigScreenForm
             addWebhook={this.addWebhook}
+            fieldErrors={fieldErrors}
+            setFieldError={this.setFieldError}
             removeWebhook={this.removeWebhook}
             webhooks={webhooks}
             setWebhookParameter={this.setWebhookParameter}
