@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import Config from '../components/ConfigScreen';
+import Config from '.';
 
 const sdkMock = {
   app: {

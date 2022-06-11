@@ -4,9 +4,9 @@ import tokens from '@contentful/forma-36-tokens';
 import { Button, Note } from '@contentful/forma-36-react-components';
 import { SidebarExtensionSDK } from 'contentful-ui-extensions-sdk';
 
-import { Parameters } from '../lib/types';
-import Row from './Row';
-import Select from './Select';
+import { Parameters } from '../../lib/types';
+import Row from '../Row';
+import Select from '../Select';
 
 const copy = {
   noWebhooks: "There is no webhook configured in the app's configuration",
@@ -80,7 +80,7 @@ function Sidebar({ sdk }: SidebarProps): React.ReactElement {
       setLoading(false);
 
       if (!response.ok) {
-        setError(response.statusText);
+        setError(String(response));
         return;
       }
 

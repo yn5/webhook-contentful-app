@@ -2,8 +2,8 @@ import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { SidebarExtensionSDK } from 'contentful-ui-extensions-sdk';
 
-import { Parameters } from '../lib/types';
-import Sidebar from '../components/Sidebar';
+import { Parameters } from '../../lib/types';
+import Sidebar from '.';
 
 const startAutoResizerMock = jest.fn();
 
@@ -123,6 +123,10 @@ describe('Sidebar', () => {
                   'https://www.google.com',
                   {
                     method: 'POST',
+                    body: undefined,
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
                   }
                 );
               });
@@ -201,6 +205,10 @@ describe('Sidebar', () => {
             'https://www.google.com/search?q=1',
             {
               method: 'POST',
+              body: undefined,
+              headers: {
+                'Content-Type': 'application/json',
+              },
             }
           );
         });
@@ -235,6 +243,10 @@ describe('Sidebar', () => {
               'https://www.google.com/search?q=2',
               {
                 method: 'POST',
+                body: undefined,
+                headers: {
+                  'Content-Type': 'application/json',
+                },
               }
             );
           });

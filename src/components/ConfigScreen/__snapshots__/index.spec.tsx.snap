@@ -208,6 +208,128 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
               <div
                 class="css-10wjke7"
               >
+                <div
+                  class="SelectField__SelectField___kbQlf"
+                  data-test-id="request-method-input-0"
+                >
+                  <div
+                    class="SelectField__SelectField__label-wrapper___3jGwo"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="requestMethod"
+                    >
+                      Request method
+                    </label>
+                  </div>
+                  <div
+                    class="Select__Select__wrapper___2mbYV Select__Select--full___AENS4"
+                  >
+                    <select
+                      aria-label="requestMethod"
+                      class="Select__Select___2Gi9N a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-select"
+                      id="requestMethod"
+                      name="requestMethod"
+                    >
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="POST"
+                      >
+                        POST
+                      </option>
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="GET"
+                      >
+                        GET
+                      </option>
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="PUT"
+                      >
+                        PUT
+                      </option>
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="PATCH"
+                      >
+                        PATCH
+                      </option>
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="DELETE"
+                      >
+                        DELETE
+                      </option>
+                    </select>
+                    <svg
+                      class="Icon__Icon___38Epv Icon__Icon--small___1yGZK Icon__Icon--muted___3egnD Select__Select__icon___OBmvS"
+                      data-test-id="cf-ui-icon"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      class="HelpText__HelpText___uWbja SelectField__SelectField__help-text___H0RZB"
+                      data-test-id="cf-ui-help-text"
+                    >
+                      The method of the request sent.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-10wjke7"
+              >
+                <div
+                  class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
+                  data-test-id="request-body-input-0"
+                >
+                  <div
+                    class="TextField__TextField__label-wrapper___2-MJT"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="requestBody"
+                    >
+                      Request body
+                    </label>
+                  </div>
+                  <div
+                    class="Textarea__Textarea___qcph7 Textarea__Textarea--full___1OW4s Textarea__Textarea--resize-vertical___1J6l-"
+                  >
+                    <textarea
+                      aria-label="requestBody"
+                      class="Textarea__Textarea__textarea___30c64 a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-textarea"
+                      id="requestBody"
+                      name="requestBody"
+                    />
+                  </div>
+                  <div
+                    class="TextField__TextField__hints___3Di2P"
+                  >
+                    <p
+                      class="HelpText__HelpText___uWbja TextField__TextField__help-text___p4rVf"
+                      data-test-id="cf-ui-help-text"
+                    >
+                      JSON for the body of the request sent (if applicable, this field will throw an error for a GET request for instance).
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-10wjke7"
+              >
                 <button
                   class="TextLink__TextLink___1biUr a11y__focus-outline--default___2hwb1 css-7h4q8w TextLink__TextLink--negative___3yhMk"
                   data-test-id="delete-webhook-button-0"
@@ -403,6 +525,128 @@ exports[`Config When there is an empty webhook Should match snapshot 1`] = `
                       data-test-id="cf-ui-help-text"
                     >
                       The text that will be shown in the button that triggers the webhook
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-10wjke7"
+              >
+                <div
+                  class="SelectField__SelectField___kbQlf"
+                  data-test-id="request-method-input-0"
+                >
+                  <div
+                    class="SelectField__SelectField__label-wrapper___3jGwo"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="requestMethod"
+                    >
+                      Request method
+                    </label>
+                  </div>
+                  <div
+                    class="Select__Select__wrapper___2mbYV Select__Select--full___AENS4"
+                  >
+                    <select
+                      aria-label="requestMethod"
+                      class="Select__Select___2Gi9N a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-select"
+                      id="requestMethod"
+                      name="requestMethod"
+                    >
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="POST"
+                      >
+                        POST
+                      </option>
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="GET"
+                      >
+                        GET
+                      </option>
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="PUT"
+                      >
+                        PUT
+                      </option>
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="PATCH"
+                      >
+                        PATCH
+                      </option>
+                      <option
+                        data-test-id="cf-ui-select-option"
+                        value="DELETE"
+                      >
+                        DELETE
+                      </option>
+                    </select>
+                    <svg
+                      class="Icon__Icon___38Epv Icon__Icon--small___1yGZK Icon__Icon--muted___3egnD Select__Select__icon___OBmvS"
+                      data-test-id="cf-ui-icon"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                    >
+                      <path
+                        d="M5.29289 8.29289C5.68342 7.90237 6.31658 7.90237 6.70711 8.29289L12 13.5858L17.2929 8.29289C17.6834 7.90237 18.3166 7.90237 18.7071 8.29289C19.0976 8.68342 19.0976 9.31658 18.7071 9.70711L12.7071 15.7071C12.3166 16.0976 11.6834 16.0976 11.2929 15.7071L5.29289 9.70711C4.90237 9.31658 4.90237 8.68342 5.29289 8.29289Z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p
+                      class="HelpText__HelpText___uWbja SelectField__SelectField__help-text___H0RZB"
+                      data-test-id="cf-ui-help-text"
+                    >
+                      The method of the request sent.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="css-10wjke7"
+              >
+                <div
+                  class="TextField__TextField___Sf6eo TextField__TextField--full___11DBK"
+                  data-test-id="request-body-input-0"
+                >
+                  <div
+                    class="TextField__TextField__label-wrapper___2-MJT"
+                  >
+                    <label
+                      class="FormLabel__FormLabel___3d6zQ"
+                      data-test-id="cf-ui-form-label"
+                      for="requestBody"
+                    >
+                      Request body
+                    </label>
+                  </div>
+                  <div
+                    class="Textarea__Textarea___qcph7 Textarea__Textarea--full___1OW4s Textarea__Textarea--resize-vertical___1J6l-"
+                  >
+                    <textarea
+                      aria-label="requestBody"
+                      class="Textarea__Textarea__textarea___30c64 a11y__focus-border--default___60AXp"
+                      data-test-id="cf-ui-textarea"
+                      id="requestBody"
+                      name="requestBody"
+                    />
+                  </div>
+                  <div
+                    class="TextField__TextField__hints___3Di2P"
+                  >
+                    <p
+                      class="HelpText__HelpText___uWbja TextField__TextField__help-text___p4rVf"
+                      data-test-id="cf-ui-help-text"
+                    >
+                      JSON for the body of the request sent (if applicable, this field will throw an error for a GET request for instance).
                     </p>
                   </div>
                 </div>
