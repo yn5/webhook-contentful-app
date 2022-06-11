@@ -43,8 +43,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test --env=jsdom-sixteen --verbose --colors",
-    "test:watch": "react-scripts test --env=jsdom-sixteen --verbose",
+    "test": "CI=true react-scripts test --verbose --colors",
+    "test:watch": "react-scripts test --verbose",
     "lint": "eslint ./src/**/*.*",
     "lint:fix": "eslint ./src/**/*.* --fix",
     "format": "prettier --check src/**/*.*",
