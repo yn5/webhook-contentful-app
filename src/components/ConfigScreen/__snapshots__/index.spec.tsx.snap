@@ -313,7 +313,9 @@ exports[`Config When there is a webhook with values Should match snapshot 1`] = 
                       data-test-id="cf-ui-textarea"
                       id="requestBody"
                       name="requestBody"
-                    />
+                    >
+                      {"testing": 123}
+                    </textarea>
                   </div>
                   <div
                     class="TextField__TextField__hints___3Di2P"
