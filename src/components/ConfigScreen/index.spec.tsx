@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import Config from '../components/ConfigScreen';
+import Config from '.';
 
 const sdkMock = {
   app: {
@@ -75,6 +75,8 @@ describe('Config', () => {
             name: 'Test',
             buttonText: 'Custom button text',
             webhookUrl: 'https://www.google.com',
+            requestMethod: 'PUT',
+            requestBody: '{"testing": 123}',
           },
         ],
       });
@@ -100,6 +102,16 @@ describe('Config', () => {
           'input'
         )
       ).toHaveValue('https://www.google.com');
+      expect(
+        (await screen.findByTestId('request-method-input-0')).querySelector(
+          'select'
+        )
+      ).toHaveValue('PUT');
+      expect(
+        (await screen.findByTestId('request-body-input-0')).querySelector(
+          'textarea'
+        )
+      ).toHaveValue('{"testing": 123}');
     });
     describe('And a delete link is clicked', () => {
       it('Should delete the fields for that webhook', async () => {

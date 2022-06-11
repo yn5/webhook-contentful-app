@@ -2,8 +2,8 @@ import React from 'react';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { SidebarExtensionSDK } from 'contentful-ui-extensions-sdk';
 
-import { Parameters } from '../lib/types';
-import Sidebar from '../components/Sidebar';
+import { Parameters } from '../../lib/types';
+import Sidebar from '.';
 
 const startAutoResizerMock = jest.fn();
 
@@ -123,8 +123,56 @@ describe('Sidebar', () => {
                   'https://www.google.com',
                   {
                     method: 'POST',
+                    body: undefined,
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
                   }
                 );
+              });
+            });
+            describe('And the requestMethod and requestBody properties were set', () => {
+              beforeEach(() => {
+                (sdkMock.parameters.installation as any).webhooks = [
+                  {
+                    name: '',
+                    webhookUrl: 'https://www.google.com',
+                    buttonText: 'Custom button text',
+                    requestMethod: 'PATCH',
+                    requestBody: '{"testing": 123}',
+                  },
+                ];
+
+                global.fetch = jest.fn(() =>
+                  Promise.resolve({
+                    ok: true,
+                  })
+                ) as any;
+              });
+              it('Should show a success note', async () => {
+                render(<Sidebar sdk={sdkMock} />);
+                fireEvent.click(screen.getByTestId(triggerButtonTestId));
+
+                await waitFor(() => {
+                  expect(screen.getByTestId('success-note')).toBeVisible();
+                });
+              });
+              it('Should do a POST request to the webhook URL with the specified method and body', async () => {
+                render(<Sidebar sdk={sdkMock} />);
+                fireEvent.click(screen.getByTestId('trigger-webhook-button'));
+
+                await waitFor(() => {
+                  expect(global.fetch).toHaveBeenCalledWith(
+                    'https://www.google.com',
+                    {
+                      method: 'PATCH',
+                      body: '{"testing": 123}',
+                      headers: {
+                        'Content-Type': 'application/json',
+                      },
+                    }
+                  );
+                });
               });
             });
           });
@@ -201,6 +249,10 @@ describe('Sidebar', () => {
             'https://www.google.com/search?q=1',
             {
               method: 'POST',
+              body: undefined,
+              headers: {
+                'Content-Type': 'application/json',
+              },
             }
           );
         });
@@ -235,6 +287,10 @@ describe('Sidebar', () => {
               'https://www.google.com/search?q=2',
               {
                 method: 'POST',
+                body: undefined,
+                headers: {
+                  'Content-Type': 'application/json',
+                },
               }
             );
           });

@@ -2,6 +2,8 @@ interface Webhook {
   name?: string;
   buttonText?: string;
   webhookUrl?: string;
+  requestMethod?: string;
+  requestBody?: string;
 }
 
 export interface ContentType {
