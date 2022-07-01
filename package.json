@@ -10,7 +10,7 @@
     "@contentful/field-editor-single-line": "^1.1.2",
     "@contentful/field-editor-test-utils": "^1.1.2",
     "@contentful/forma-36-fcss": "0.3.5",
-    "@contentful/forma-36-react-components": "^3.100.4",
+    "@contentful/forma-36-react-components": "^3.100.7",
     "@contentful/forma-36-tokens": "^0.11.1",
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.9.0",
