@@ -15,7 +15,7 @@
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.6.0",
-    "contentful-ui-extensions-sdk": "^4.6.0",
+    "contentful-ui-extensions-sdk": "^4.16.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.1",
